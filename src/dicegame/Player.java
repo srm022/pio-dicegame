@@ -1,19 +1,18 @@
 package dicegame;
 
-import java.util.Random;
-
 /**
- * Klasa Player reprezentuje gracza odgadującego wylosowaną liczbę.
+ * Abstrakcyjna klasa bazowa dla klas graczy.
  * 
+ * Definiuje abstrakcyjną metodę guess().
  */
-public class Player {
-    //"odgadywacz"
-    private Random guesser = new Random();
+
+public abstract class Player {
+
+    /**
+     * Metoda zwraca odgadniętą liczbę (strzał).
+     * 
+     * @return odgadnięta liczba 
+     */
+    public abstract int guess();
     
-    //metoda odgadująca liczbę
-    public int guess() {
-        int guess = guesser.nextInt(6) + 1;
-        System.out.println("Strzał (guess): " + guess);
-        return guess;
-    } 
 }

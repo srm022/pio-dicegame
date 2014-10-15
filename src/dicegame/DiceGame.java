@@ -3,10 +3,12 @@ package dicegame;
 import java.util.Random;
 
 /**
- * Druga wersja gry w odgadywanie wylosowanej liczby.
+ * Trzecia wersja gry w odgadywanie wylosowanej liczby.
  * 
  * Zmiany:
- * logika odpowiadająca za zachowanie gracza została przeniesiona do klasy Player
+ * - logika odpowiadająca za zachowanie gracza komputerowego została przeniesiona do klasy PlayerComp
+ * - w klasie PlayerHuman znalazł się kod odpowiedzialny za zachowania gracza-człowieka
+ * - abstrakcyjna klasa Player zawiera abstrakcyjną metodę guess(), zapewniając w ten sposób wspólny interfejs obu typów graczy
  * 
  * Zasady:
  * - komputer rzuca kostką (losuje liczby z zakresu 1..6)
@@ -21,7 +23,14 @@ public class DiceGame {
      */
     public static void main(String[] args) {
         
-        Player player = new Player();   //obiekt gracza
+        /* Obiekt gracza trzymamy w zmiennej obiektowej typu Player.
+           Dzięki temu, że zastosowaliśmy dziedziczenie, możemy przypisać tej
+           zmiennej obiekt klasy PlayerComp lub PlayerHuman. Obiekty obu klas
+           mają metodę guess(), a to jest dla poniższego kodu najważniejsze.
+        */
+        
+//        Player player = new PlayerComp();    //obiekt komputerowego gracza
+        Player player = new PlayerHuman();   //obiekt gracza-człowieka
         
         Random dice = new Random();     //obiekt losujący (kostka)
         int number,                     //wylosowana liczba
@@ -31,7 +40,7 @@ public class DiceGame {
             number = dice.nextInt(6) + 1;
             System.out.println("Wylosowane (number): " + number);
 
-            guess = player.guess();     //wywołujemy metodę guess() obiektu gracza (klasy Player)
+            guess = player.guess();     //wywołujemy metodę guess() obiektu gracza (klasy PlayerComp lub PlayerHuman)
 
             if (number == guess) {
                 System.out.println("BRAWO!");
