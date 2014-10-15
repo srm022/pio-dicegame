@@ -3,7 +3,11 @@ package dicegame;
 import java.util.Random;
 
 /**
- * Pierwsza wersja gry w odgadywanie wylosowanej liczby.
+ * Druga wersja gry w odgadywanie wylosowanej liczby.
+ * 
+ * Zmiany:
+ * logika odpowiadająca za zachowanie gracza została przeniesiona do klasy Player
+ * 
  * Zasady:
  * - komputer rzuca kostką (losuje liczby z zakresu 1..6)
  * - gracz (też komputer) stara się odgadnąć liczbę (też losuje)
@@ -17,6 +21,8 @@ public class DiceGame {
      */
     public static void main(String[] args) {
         
+        Player player = new Player();   //obiekt gracza
+        
         Random dice = new Random();     //obiekt losujący (kostka)
         int number,                     //wylosowana liczba
             guess;                      //propozycja (strzał) gracza
@@ -25,8 +31,7 @@ public class DiceGame {
             number = dice.nextInt(6) + 1;
             System.out.println("Wylosowane (number): " + number);
 
-            guess = dice.nextInt(6) + 1;
-            System.out.println("Strzał (guess): " + guess);
+            guess = player.guess();     //wywołujemy metodę guess() obiektu gracza (klasy Player)
 
             if (number == guess) {
                 System.out.println("BRAWO!");
