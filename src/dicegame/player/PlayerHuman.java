@@ -14,6 +14,16 @@ public class PlayerHuman extends Player {
     private Scanner scanner = new Scanner(System.in);
     
     /**
+     * Konstruktory
+     */
+    public PlayerHuman() {
+    }
+    
+    public PlayerHuman(String name) {
+        super(name);    //wywołujemy konstruktor klasy nadrzędnej (Player) z jednym parametrem
+    }
+    
+    /**
      * Metoda umożliwia użytkownikowi wpisanie liczby.
      * 
      * Uwaga: nie są wykonywane żadne testy sprawdzające poprawność wprowadzanych danych!

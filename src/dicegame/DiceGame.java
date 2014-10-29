@@ -2,6 +2,7 @@ package dicegame;
 
 import dicegame.player.Player;
 import dicegame.player.PlayerComp;
+import dicegame.player.PlayerHuman;
 import java.util.Random;
 
 /**
@@ -31,10 +32,10 @@ public class DiceGame {
            mają metodę guess(), a to jest dla poniższego kodu najważniejsze.
         */
         
-        Player player = new PlayerComp();    //obiekt komputerowego gracza
-//        Player player = new PlayerHuman();   //obiekt gracza-człowieka
+        Player player = new PlayerComp("Waldek");    //obiekt komputerowego gracza
+//        Player player = new PlayerHuman("Marian");   //obiekt gracza-człowieka
         
-        player.setName("Waldek");       //ustawiamy imię gracza za pomocą metody setName (czyli settera)
+//        player.setName("Waldek");       //ustawiamy imię gracza za pomocą metody setName (czyli settera)
         
         Random dice = new Random();     //obiekt losujący (kostka)
         int number,                     //wylosowana liczba

@@ -9,9 +9,16 @@ import java.util.Random;
  * 
  */
 public class PlayerComp extends Player {
+
+    /**
+     * Konstruktory
+     */
+    public PlayerComp() {
+    }
     
-    //"odgadywacz"
-    private Random guesser = new Random();
+    public PlayerComp(String name) {
+        super(name);    //wywołujemy konstruktor klasy nadrzędnej (Player) z jednym parametrem
+    }
     
     /**
      * Metoda odgadująca liczbę.
@@ -22,5 +29,8 @@ public class PlayerComp extends Player {
     public int guess() {
         int guess = guesser.nextInt(6) + 1;
         return guess;
-    } 
+    }
+    
+    //"odgadywacz"
+    private Random guesser = new Random();
 }

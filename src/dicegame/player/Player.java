@@ -9,6 +9,17 @@ package dicegame.player;
 public abstract class Player {
 
     /**
+     * Konstruktory
+     */
+    public Player() {
+        name = "Anonim";
+    }
+    
+    public Player(String name) {
+        this.name = name;
+    }    
+    
+    /**
      * Pole nazwy (imienia) gracza.
      * 
      * Pole jest prywatne, więc dostarczamy setter i getter.
