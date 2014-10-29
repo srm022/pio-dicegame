@@ -1,4 +1,4 @@
-package dicegame;
+package dicegame.player;
 
 import java.util.Random;
 
@@ -21,7 +21,6 @@ public class PlayerComp extends Player {
     @Override
     public int guess() {
         int guess = guesser.nextInt(6) + 1;
-        System.out.println("Strzał (guess): " + guess);
         return guess;
     } 
 }

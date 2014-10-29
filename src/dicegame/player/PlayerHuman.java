@@ -1,4 +1,4 @@
-package dicegame;
+package dicegame.player;
 
 import java.util.Scanner;
 
