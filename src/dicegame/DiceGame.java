@@ -6,16 +6,11 @@ import dicegame.player.PlayerHuman;
 import java.util.Random;
 
 /**
- * Trzecia wersja gry w odgadywanie wylosowanej liczby.
- * 
- * Zmiany:
- * - logika odpowiadająca za zachowanie gracza komputerowego została przeniesiona do klasy PlayerComp
- * - w klasie PlayerHuman znalazł się kod odpowiedzialny za zachowania gracza-człowieka
- * - abstrakcyjna klasa Player zawiera abstrakcyjną metodę guess(), zapewniając w ten sposób wspólny interfejs dla obu typów graczy
+ * Gra w odgadywanie wylosowanej liczby.
  * 
  * Zasady:
  * - komputer rzuca kostką (losuje liczby z zakresu 1..6)
- * - gracz (też komputer) stara się odgadnąć liczbę (też losuje)
+ * - gracz (komputer lub człowiek) stara się odgadnąć liczbę
  * - jeżeli odgadnie, gra się kończy
  * - jeżeli nie odgadnie, rozpoczyna się kolejna runda (komputer losuje kolejną liczbę i gracz stara się ją odgadnąć)
  */
