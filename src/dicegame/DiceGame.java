@@ -10,7 +10,7 @@ import java.util.Random;
  * Zmiany:
  * - logika odpowiadająca za zachowanie gracza komputerowego została przeniesiona do klasy PlayerComp
  * - w klasie PlayerHuman znalazł się kod odpowiedzialny za zachowania gracza-człowieka
- * - abstrakcyjna klasa Player zawiera abstrakcyjną metodę guess(), zapewniając w ten sposób wspólny interfejs obu typów graczy
+ * - abstrakcyjna klasa Player zawiera abstrakcyjną metodę guess(), zapewniając w ten sposób wspólny interfejs dla obu typów graczy
  * 
  * Zasady:
  * - komputer rzuca kostką (losuje liczby z zakresu 1..6)
