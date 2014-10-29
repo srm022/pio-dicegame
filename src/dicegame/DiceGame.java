@@ -6,16 +6,11 @@ import dicegame.player.PlayerHuman;
 import java.util.Random;
 
 /**
- * Trzecia wersja gry w odgadywanie wylosowanej liczby.
- * 
- * Zmiany:
- * - logika odpowiadająca za zachowanie gracza komputerowego została przeniesiona do klasy PlayerComp
- * - w klasie PlayerHuman znalazł się kod odpowiedzialny za zachowania gracza-człowieka
- * - abstrakcyjna klasa Player zawiera abstrakcyjną metodę guess(), zapewniając w ten sposób wspólny interfejs dla obu typów graczy
+ * Gra w odgadywanie wylosowanej liczby.
  * 
  * Zasady:
  * - komputer rzuca kostką (losuje liczby z zakresu 1..6)
- * - gracz (też komputer) stara się odgadnąć liczbę (też losuje)
+ * - gracz (komputer lub człowiek) stara się odgadnąć liczbę
  * - jeżeli odgadnie, gra się kończy
  * - jeżeli nie odgadnie, rozpoczyna się kolejna runda (komputer losuje kolejną liczbę i gracz stara się ją odgadnąć)
  */
@@ -35,7 +30,25 @@ public class DiceGame {
         Player player = new PlayerComp("Waldek");    //obiekt komputerowego gracza
 //        Player player = new PlayerHuman("Marian");   //obiekt gracza-człowieka
         
-//        player.setName("Waldek");       //ustawiamy imię gracza za pomocą metody setName (czyli settera)
+        // próbujemy ustawić puste, czyli niepoprawne imię
+        // ponieważ w metodzie setName() klasy Player rzucamy wyjątek,
+        // a tu go nie przechwytujemy, aplikacja się wysypuje
+//        player.setName("");
+        
+        // tutaj podobnie - próbujemy ustawić niepoprawne imię, ale robimy to
+        // w bloku try-catch, dzięki czemu wszystko jest pod kontrolą
+        try {
+            player.setName("");
+            
+            //poniższy komunikat wyświetli się tylko wtedy, gdy uda się ustawić imię
+            System.out.println("Imię zmienione na: " + player.getName());
+            
+        } catch (IllegalArgumentException e) {
+            
+            //wyświetlamy komunikat przekazany w wyjątku
+            //(ustawiony w chwili tworzenia obiektu wyjątku)
+            System.out.println("Błąd! " + e.getMessage());
+        }
         
         Random dice = new Random();     //obiekt losujący (kostka)
         int number,                     //wylosowana liczba

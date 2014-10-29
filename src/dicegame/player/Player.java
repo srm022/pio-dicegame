@@ -27,7 +27,13 @@ public abstract class Player {
     private String name;
     
     public void setName(String name) {
-        this.name = name;
+        //sprawdzamy, czy nazwa nie jest null ani nie jest pusta ("")
+        if (name != null && !name.isEmpty()) {
+            this.name = name;
+        } else {
+            //jeśli nazwa nie jest poprawna, rzucamy wyjątek IllegalArgumentException z odpowiednim komunikatem
+            throw new IllegalArgumentException("Imię nie może być puste!");
+        }
     }
     
     public String getName() {
