@@ -16,6 +16,24 @@ public class Game {
      */
     private List<Player> players = new ArrayList<>();
     
+    
+    /**
+     * Pole przechowuje obiekt statystyk.
+     */
+    private Stats stats = new Stats();
+    
+    /**
+     * Metoda zwracająca obiekt statystyk.
+     * 
+     * Dzięki temu "z zewnątrz" (spoza klasy) można wywoływać metody obiektu statystyk.
+     * 
+     * @return obiekt statystyk
+     */
+    public Stats stats() {
+        return stats;
+    }
+
+    
     /**
      * Metoda dodająca obiekt gracza do listy.
      * 
@@ -26,11 +44,16 @@ public class Game {
      * @param player obiekt gracza
      */
     public void addPlayer(Player player) {
-        
+               
         String name = player.getName();
         
         if (isNameUnique(name)) {
+            //obiekt gracza dodajemy do listy graczy
             players.add(player);
+            
+            //nazwę gracza przekazujemy do obiektu statystyk, by dodał wpis dla gracza
+            stats.addPlayerName(name);
+            
         } else {
             name += String.valueOf(Math.round(Math.random() * 10));
             player.setName(name);
@@ -74,6 +97,9 @@ public class Game {
                 if (number == guess) {
                     System.out.println("BRAWO!");
                     repeat = false;         //kończymy grę
+
+                    //informujemy obiekt statystyk, kto wygrał
+                    stats.andTheWinnerIs(player.getName());                    
                 } else {
                     System.out.println("PUDŁO!");
                 }
@@ -83,5 +109,5 @@ public class Game {
         
         } while (repeat);    
     }
-    
+        
 }

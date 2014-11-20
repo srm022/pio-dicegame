@@ -1,8 +1,6 @@
 package dicegame;
 
-import dicegame.player.Player;
 import dicegame.player.PlayerComp;
-import dicegame.player.PlayerHuman;
 
 /**
  * Gra w odgadywanie wylosowanej liczby.
@@ -27,11 +25,22 @@ public class DiceGame {
         game.addPlayer(new PlayerComp("Waldek"));
         
         //do gry dodajemy drugiego gracza o tym samym imieniu
-        game.addPlayer(new PlayerComp("Waldek"));
+        game.addPlayer(new PlayerComp("Marian"));
         
         
-        //uruchamiamy grę
+        //uruchamiamy serię gier
+        for (int i=0; i<3; ++i) {
+            game.start();
+        }
+        //wyświetlamy statystyki
+        game.stats().print();
+
+        //kasujemy punktację
+        game.stats().reset();
+        
+        //uruchamiamy grę i wyświetlamy statystyki
         game.start();
+        game.stats().print();
 
     }
     
