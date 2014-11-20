@@ -23,14 +23,11 @@ public class DiceGame {
         //tworzymy obiekt gry
         Game game = new Game();
         
-        //tworzymy obiekt gracza        
-        Player player = new PlayerComp("Waldek");
-
         //do gry dodajemy pierwszego gracza
-        game.addPlayer(player);
+        game.addPlayer(new PlayerComp("Waldek"));
         
-        //do gry dodajemy drugiego gracza
-        game.addPlayer(new PlayerHuman("ja"));
+        //do gry dodajemy drugiego gracza o tym samym imieniu
+        game.addPlayer(new PlayerComp("Waldek"));
         
         
         //uruchamiamy grę

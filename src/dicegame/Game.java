@@ -19,10 +19,35 @@ public class Game {
     /**
      * Metoda dodająca obiekt gracza do listy.
      * 
+     * Nie można dodać dwóch graczy o tym samym imieniu.
+     * W przypadku próby dodania gracza o imieniu, które jest już na liście,
+     * imię jest automatycznie uzupełniane o liczbę, tak by stało się unikatowe.
+     * 
      * @param player obiekt gracza
      */
     public void addPlayer(Player player) {
-        players.add(player);
+        
+        String name = player.getName();
+        
+        if (isNameUnique(name)) {
+            players.add(player);
+        } else {
+            name += String.valueOf(Math.round(Math.random() * 10));
+            player.setName(name);
+            addPlayer(player);
+        }   
+    }
+    
+    /* 
+     * Prywatna metoda sprawdzająca, czy na liście jest już gracz o danym imieniu.
+     */
+    private boolean isNameUnique(String name) {
+        for (Player p : players) {
+            if (p.getName().equals(name)) {
+                return false;
+            }
+        }
+        return true;
     }
     
     /**
