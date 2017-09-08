@@ -32,6 +32,7 @@ public class DiceGame {
             System.out.println("Wylosowane (number): " + number);
 
             guess = player.guess();     //wywołujemy metodę guess() obiektu gracza (klasy Player)
+            System.out.println("Strzał (guess): " + guess);
 
             if (number == guess) {
                 System.out.println("BRAWO!");
