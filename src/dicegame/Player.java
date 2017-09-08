@@ -12,8 +12,6 @@ public class Player {
     
     //metoda odgadująca liczbę
     public int guess() {
-        int guess = guesser.nextInt(6) + 1;
-        System.out.println("Strzał (guess): " + guess);
-        return guess;
+        return guesser.nextInt(6) + 1;
     } 
 }
